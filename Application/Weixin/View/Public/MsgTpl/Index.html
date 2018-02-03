@@ -1,0 +1,15 @@
+<xml>
+  <ToUserName><![CDATA[{$data.fromusername}]]></ToUserName>
+  <FromUserName><![CDATA[{$data.tousername}]]></FromUserName>
+  <CreateTime>{$data.createtime}</CreateTime>
+  <MsgType><![CDATA[{$data.msgtype}]]></MsgType>
+  <switch name="data.msgtype" >
+	<case value="text" break="1"><include file="Public:MsgTpl:Text" /></case>
+	<case value="news" break="1"><include file="Public:MsgTpl:News" /></case>
+	<case value="video" break="1"><include file="Public:MsgTpl:Vidro" /></case>
+	<case value="image" break="1"><include file="Public:MsgTpl:Image" /></case>
+	<case value="music" break="1"><include file="Public:MsgTpl:Music" /></case>
+	<case value="voice" break="1"><include file="Public:MsgTpl:Voice" /></case>
+	<default /><include file="Public:MsgTpl:Default" />
+	</switch>
+</xml>

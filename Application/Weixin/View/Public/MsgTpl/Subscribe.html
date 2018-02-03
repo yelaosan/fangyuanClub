@@ -1,0 +1,15 @@
+<xml>
+  <ToUserName><![CDATA[{$data.fromusername}]]></ToUserName>
+  <FromUserName><![CDATA[{$data.tousername}]]></FromUserName>
+  <CreateTime><?php time(); ?></CreateTime>
+  <MsgType><![CDATA[news]]></MsgType>
+   <ArticleCount>1</ArticleCount>
+<Articles>
+	<item>
+	<Title><![CDATA[{$vo.title}]]></Title> 
+	<Description><![CDATA[{$vo.description}]]></Description>
+	<PicUrl><![CDATA[{$vo.picurl}]]></PicUrl>
+	<Url><![CDATA[{$vo.url}]]></Url>
+	</item>
+</Articles>
+</xml>

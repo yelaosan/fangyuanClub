@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{%$title%}</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+       <link href="__PUBLIC__/css/Admin/Game/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>  
+<form action="__URL__/update" method="post">
+ <div class="imagetext martop10">
+  <div class="texttitle radius5">
+	<ul>
+	  <li class="this">{$data.title}-编辑</li>
+	</ul>
+  </div>
+  <div class="bgstyle textcontent evaluation">
+	  <div class="evalinput">
+	  	<dl>
+		  <dt>类 型:</dt>
+		  <dd>
+			<input type="radio" name="game_id" checked="checked" value="{$data.game_id}" hidden="true"/>
+			<input type="radio" name="title" checked="checked" value="{$data.title}"/> {$data.title}
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>开 始:</dt>
+		  <dd>
+			<input name="create_time" type="text" class="a1 radius5" maxlength="19" value="{$data.create_time|date='Y-m-d H:i:s',###}" />
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>结 束:</dt>
+		  <dd><input name="over_time" type="text" class="a1 radius5" maxlength="19" value="{$data.over_time|date='Y-m-d H:i:s',###}"/></dd>
+		</dl>
+		<dl>
+		  <dt>地 点:</dt>
+		  <dd>
+			<input name="place" type="text" value="{$data.place}" class="a1 radius5" maxlength="20" />
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>限 制:</dt>
+		  <dd>
+			<select name="0">
+			  <option  value ="{$data.limit.num|intval}" selected="true">总人数{$data.limit.num|intval}人</option>
+			  <for start="0" end="50"><option value ="{$i}">{$i}</option></for>
+			</select>
+			<volist name="num" id="vo">
+			<select name="{$vo.access_id}">
+			  <option value ="{$vo.num|intval}" selected="true">{$vo.name}{$vo.num|intval}人</option>
+			 <for start="0" end="50"><option value ="{$i}">{$i}</option></for>
+			</select>
+			</volist>
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>已 报:</dt>
+		  <dd>
+			<select>
+			  <option value ="{$data.user.num}">总人数{$data.user.num}人</option>
+			</select>
+			<volist name="num" id="vo" >
+			<select>
+			  <option value ="{$vo.user.num}" >{$vo.name}{$vo.user.num}人</option>
+			</select>
+			</volist>
+		  </dd>
+		</dl>
+		
+	  </div>
+  </div>
+</div>
+<div class="bgstyle buyadd">
+	  <input class="buying" type="submit" value="保存" />
+</div>
+</form>
+</body>
+</html>

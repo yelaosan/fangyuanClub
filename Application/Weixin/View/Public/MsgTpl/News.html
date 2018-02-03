@@ -1,0 +1,11 @@
+<ArticleCount>{$data.news|count}</ArticleCount>
+<Articles>
+  <volist name='data.news' id='vo'>
+	<item>
+	<Title><![CDATA[{$vo.title}]]></Title> 
+	<Description><![CDATA[{$vo.description}]]></Description>
+	<PicUrl><![CDATA[{$vo.picurl}]]></PicUrl>
+	<Url><![CDATA[{$vo.url}]]></Url>
+	</item>
+  </volist>
+</Articles>
